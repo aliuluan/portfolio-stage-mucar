@@ -38,7 +38,7 @@
             <div class="skills-list-box">
                 <h4>Savoir-faire élémentaires couverts :</h4>
                 <ul>
-                    <li><span class="sf-bdd">SF-BDD-1 : Tradruire des règles métiers en contraintes d'intégrité physiques SQL.</span></li>
+                    <li><span class="sf-bdd">SF-BDD-1 : Traduire des règles métiers en contraintes d'intégrité physiques SQL.</span></li>
                     <li><span class="sf-bdd">SF-BDD-2 : Modéliser et structurer des relations et des clés étrangères complexes (MCD).</span></li>
                     <li><span class="sf-dev">SF-DEV-1 : Développer des points d'accès (endpoints) API REST d'extraction et d'agrégation.</span></li>
                     <li><span class="sf-archi">SF-ARCHI-1 : Orchestrer et isoler des services applicatifs et de données via la conteneurisation Docker.</span></li>
@@ -55,7 +55,7 @@
                 <b>[CADRE REMARQUABLE A - Bloc Requêtes & Arrêts] :</b> L'association centrale reliant l'entité <tt>Requete</tt> et l'entité <tt>Arret</tt> matérialise la gestion fine des fenêtres horaires minimales et maximales (<tt>h_min_i</tt>, <tt>h_max_a</tt>) indispensables au moteur de calcul.
             </div>
             
-            <p><b>Descriptif général & place dans le stage :</b> La <tt>Trace 1</tt> représente le socle structurel de mon travail de conception. Afin de remédier aux problèmes d'échanges de données déconnectés entre les outils des différents chercheurs, j'ai réalisé ce Modèle Conceptuel de Données pour centraliser l'intégralité des informations de la zone pilote.</p>
+            <p><b>Descriptif général & place dans le stage :</b> La <tt>Trace 1</tt> représente le socle structurel de mon travail de conception. Afin de remédier aux problèmes d'échanges de données hétérogènes entre les outils des différents chercheurs travaillant sur ce sujet, j'ai réalisé ce Modèle Conceptuel de Données pour centraliser l'intégralité des informations de la zone pilote.</p>
             
             <p><b>Utilisation des savoir-faire :</b> J'ai mobilisé le savoir-faire <span class="sf-bdd">SF-BDD-2</span> pour structurer des dépendances complexes. Au niveau du <b>[CADRE REMARQUABLE A]</b> de la <tt>Trace 1</tt>, on observe la décomposition de la table pivot des requêtes permettant d'associer de manière étanche un usager à un itinéraire précis tout en préservant l'historisation des changements grâce à l'entité isolée <tt>Log</tt>.</p>
 
@@ -75,7 +75,7 @@ CHECK (heure_debut <= heure_fin);
             </pre>
             <span class="trace-caption"><b>Légende Trace 2 :</b> Extrait du script SQL physique implémentant les barrières de sécurité et les verrous de contraintes d'intégrité dans PostgreSQL.</span>
             
-            <p><b>Descriptif général & place dans le stage :</b> La <tt>Trace 2</tt> montre l'application physique directe du modèle conceptuel vu précédemment. Son but est d'empêcher l'injection de simulations aberrantes par les outils tiers au sein du laboratoire.</p>
+            <p><b>Descriptif général & place dans le stage :</b> La <tt>Trace 2</tt> montre l'application physique directe du modèle conceptuel vu précédemment. Son but est d'empêcher l'injection de simulations aberrantes par les outils d'expérimentation tiers au sein de l'équipe.</p>
             
             <p><b>Utilisation des savoir-faire :</b> Pour sécuriser l'intégrité, j'ai appliqué le savoir-faire <span class="sf-bdd">SF-BDD-1</span> en traduisant les contraintes métiers définies dans la légende de la <tt>Trace 1</tt> en filtres physiques stricts. Le <b>[POINT REMARQUABLE B]</b> et le <b>[POINT REMARQUABLE C]</b> de la <tt>Trace 2</tt> illustrent comment le SGBD rejette nativement toute incohérence temporelle ou surcharge de véhicule avant traitement algorithmique.</p>
 
@@ -91,19 +91,19 @@ CHECK (heure_debut <= heure_fin);
                 <b>[CADRE REMARQUABLE D - Calculs individuels et globaux] :</b> La zone de droite détaille la logique d'agrégation mathématique (passage de 500 CO2 à 200 CO2, soit -60%) d'après les types de rôles (Passenger, Driver).
             </div>
 
-            <p><b>Descriptif général & place dans le stage :</b> Mon premier démonstrateur front-end n'étant plus la brique prioritaire, j'ai développé cette semaine l'API backend <tt>MucarGen</tt> pour faire office d'<b>aspirateur de données</b>. Cette API extrait les flux bruts générés par l'outil tiers <tt>Mucar_viz</tt> et s'appuie sur la logique métier illustrée par la <tt>Trace 3</tt> pour alimenter de façon dynamique le tableau de bord environnemental.</p>
+            <p><b>Descriptif général & place dans le stage :</b> Mon premier démonstrateur front-end n'étant plus la brique prioritaire, j'ai développé par la suite l'API backend <tt>MucarGen</tt> pour faire office de passerelle de données. Cette API extrait les flux bruts générés par l'outil de simulation graphique et s'appuie sur la logique métier illustrée par la <tt>Trace 3</tt> pour alimenter de façon dynamique le tableau de bord environnemental.</p>
             
-            <p><b>Utilisation des savoir-faire :</b> Pour faire vivre ce modèle visuel, j'ai utilisé le savoir-faire <span class="sf-dev">SF-DEV-1</span> en développant les points d'accès <tt>/api/v1/eco/global</tt> décrits dans le fichier d'instructions (README) de mon dépôt. L'API traduit informatiquement le scénario de la <tt>Trace 3</tt> en effectuant des calculs de regroupement SQL (<tt>SUM</tt> et <tt>COUNT</tt> sur la table <tt>Ticket</tt> visible sur le MCD) pour renvoyer au client le volume exact de carbone évité. Enfin, le savoir-faire <span class="sf-archi">SF-ARCHI-1</span> a été requis pour encapsuler cette logique et la base de données PostgreSQL associée dans un environnement virtuel reproductible grâce à Docker Compose.</p>
+            <p><b>Utilisation des savoir-faire :</b> Pour donner corps à ce modèle visuel, j'ai utilisé le savoir-faire <span class="sf-dev">SF-DEV-1</span> en développant les points d'accès <tt>/api/v1/eco/global</tt> décrits dans la documentation technique (README) de mon dépôt. L'API traduit informatiquement le scénario de la <tt>Trace 3</tt> en effectuant des calculs de regroupement SQL (<tt>SUM</tt> et <tt>COUNT</tt> sur la table <tt>Ticket</tt> visible sur le MCD) pour renvoyer au client le volume exact de carbone évité. Enfin, le savoir-faire <span class="sf-archi">SF-ARCHI-1</span> a été requis pour encapsuler cette logique et la base de données PostgreSQL associée dans un environnement virtuel reproductible grâce à Docker Compose.</p>
         </div>
 
         <div id="tech-bilan" class="sub-page">
             <div class="card">
                 <h3>Bilan sur le savoir-faire général : Conception et Ingestion de données</h3>
                 <p><b>Résumé des savoir-faire élémentaires associés :</b> Traduction de contraintes physiques (<span class="sf-bdd">SF-BDD-1</span>), modélisation relationnelle (<span class="sf-bdd">SF-BDD-2</span>), endpoints d'API REST (<span class="sf-dev">SF-DEV-1</span>) et isolation applicative (<span class="sf-archi">SF-ARCHI-1</span>).</p>
-                <p><b>Contexte d'utilisation :</b> Structuration de la base de données unifiée du laboratoire et écriture du moteur d'aspiration et de transition des données de simulation.</p>
-                <p><b>Contexte d'apprentissage & Difficultés :</b> La théorie de la modélisation a été acquise à l'IUT. Cependant, adapter un MCD complet (<tt>Trace 1</tt>) à des flux asynchrones fluctuants a été complexe. L'implémentation de l'architecture REST Node/Express et le déploiement conteneurisé multi-services sous Docker constituent un <b>apprentissage 100 % autonome</b> mené à la maison pour répondre aux exigences technologiques du laboratoire.</p>
+                <p><b>Contexte d'utilisation :</b> Structuration de la base de données unifiée de l'environnement expérimental et écriture du moteur d'aspiration et de transition des données de covoiturage.</p>
+                <p><b>Contexte d'apprentissage & Difficultés :</b> La théorie de la modélisation a été acquise à l'IUT. Cependant, adapter un MCD complet (<tt>Trace 1</tt>) à des flux fluctuants a été complexe. L'implémentation de l'architecture REST Node/Express et le déploiement conteneurisé multi-services sous Docker constituent un <b>apprentissage autonome</b> mené pour répondre aux exigences technologiques spécifiques à cette brique logicielle.</p>
                 <p><b>Évaluation du niveau d'expertise :</b> <span class="badge">EXCELLENT</span><br>
-                <i>Justification :</i> Je maîtrise désormais le cycle complet de la donnée, depuis sa modélisation théorique sur schéma jusqu'à son ingestion finale sécurisée par API sous Docker, validé par l'intégration fonctionnelle de mon outil au sein de l'équipe DISC.</p>
+                <i>Justification :</i> Je maîtrise désormais le cycle complet de la donnée, depuis sa modélisation théorique sur schéma jusqu'à son ingestion finale sécurisée par API sous Docker, validé par l'intégration fonctionnelle de mon outil au sein du système d'ingestion de données.</p>
             </div>
         </div>
     </div>
