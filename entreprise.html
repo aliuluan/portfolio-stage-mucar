@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio BUT 2 - Intégration Entreprise</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div id="sidebar">
+        <div id="profile-header">
+            <h1>Luan ALIU</h1>
+            <p class="title-sub">Étudiant BUT 2 Informatique</p>
+            <p>luan.aliu@edu.univ-fcomte.fr</p>
+            <p>07 69 24 77 32</p>
+            <p class="lab-info">Stage : Laboratoire FEMTO-ST</p>
+        </div>
+        <nav class="main-nav">
+            <a href="index.html" class="nav-link">1. Accueil</a>
+            <a href="technique.html" class="nav-link">2. Compétences Techniques</a>
+            <a href="projet.html" class="nav-link">3. Suivi de Projet</a>
+            <a href="entreprise.html" class="nav-link active">4. Intégration Entreprise</a>
+        </nav>
+    </div>
+
+    <div id="main-content">
+        <h2>Intégration en Entreprise</h2>
+        <p>Cette section met en lumière mes aptitudes à collaborer au sein d'une équipe et à communiquer auprès de publics professionnels et profanes.</p>
+
+        <div class="sub-nav-container">
+            <button class="sub-btn active" onclick="switchSubPage('ent-traces')">Traces d'intégration</button>
+            <button class="sub-btn" onclick="switchSubPage('ent-bilan')">Bilan & Auto-évaluation</button>
+        </div>
+
+        <div id="ent-traces" class="sub-page active">
+            <h3>Trace 5 : Médiation scientifique au Festival Inouïh</h3>
+            <p>Co-animation du stand du laboratoire FEMTO-ST lors du festival. J'ai géré un atelier ludique basé sur le démonstrateur technique, en adaptant mon discours pour expliquer les enjeux de la mobilité durable à des publics d'âges variés (élèves de CM1/CM2, lycéens et grand public).</p>
+
+            <h3>Trace 6 : Analyse d'héritage technique et Synergie</h3>
+            <p>Plutôt que de reconstruire de zéro, j'ai effectué un travail de rétro-ingénierie sur les maquettes Figma et l'interface codée par un ancien stagiaire. De plus, les échanges avec mes collègues actuels ont permis de faire converger nos démonstrateurs respectifs pour optimiser la présentation globale du projet.</p>
+        </div>
+
+        <div id="ent-bilan" class="sub-page">
+            <h3>Analyse critique de la posture professionnelle</h3>
+            <p>Ce stage m'a fait réaliser qu'un algorithme performant (comme le GBFCA) n'a de valeur que si l'on est capable de le vulgariser et de l'expliquer clairement. Travailler dans une équipe composée majoritairement de stagiaires m'a également appris à partager mes notes pour maintenir tout le monde au même niveau d'information.</p>
+            <p><span class="highlight">Évaluation du niveau d'expertise :</span> <span class="badge">EXCELLENT</span> en adaptabilité et vulgarisation ; <span class="badge">TRÈS BON</span> en synergie d'équipe.</p>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

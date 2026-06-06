@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio BUT 2 - Suivi de Projet</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div id="sidebar">
+        <div id="profile-header">
+            <h1>Luan ALIU</h1>
+            <p class="title-sub">Étudiant BUT 2 Informatique</p>
+            <p>luan.aliu@edu.univ-fcomte.fr</p>
+            <p>07 69 24 77 32</p>
+            <p class="lab-info">Stage : Laboratoire FEMTO-ST</p>
+        </div>
+        <nav class="main-nav">
+            <a href="index.html" class="nav-link">1. Accueil</a>
+            <a href="technique.html" class="nav-link">2. Compétences Techniques</a>
+            <a href="projet.html" class="nav-link active">3. Suivi de Projet</a>
+            <a href="entreprise.html" class="nav-link">4. Intégration Entreprise</a>
+        </nav>
+    </div>
+
+    <div id="main-content">
+        <h2>Savoir-faire en Suivi de Projet</h2>
+        <p>Cette section présente les méthodes mises en œuvre pour documenter, versionner et assurer la pérennité des livrables du laboratoire.</p>
+
+        <div class="sub-nav-container">
+            <button class="sub-btn active" onclick="switchSubPage('proj-traces')">Traces méthodologiques</button>
+            <button class="sub-btn" onclick="switchSubPage('proj-bilan')">Bilan & Auto-évaluation</button>
+        </div>
+
+        <div id="proj-traces" class="sub-page active">
+            <h3>Trace 3 : Versioning documentaire sous LaTeX / Overleaf</h3>
+            <p>Centralisation et mise au propre de toutes les notes techniques et diaporamas. Les versions successives (v0.1 à v0.3) ont permis de structurer pas à pas les présentations qui serviront de base officielle pour le cahier des charges du projet.</p>
+            
+            <h3>Trace 4 : Fichier de déploiement README.md</h3>
+            <p>Rédaction d'un guide complet d'installation pour le démonstrateur, garantissant la portabilité et la reproductibilité de l'application sur n'importe quel poste de travail :</p>
+            <pre class="trace-box">
+# Guide d'installation du Démonstrateur Mu-CAR
+## Prérequis : Node.js (v18+) et PostgreSQL (v15+)
+1. Cloner le dépôt : git clone [...]
+2. Installer les dépendances frontend et backend : npm install
+3. Initialiser la base de données via le script : psql -U user -f mucar_gen.sql
+4. Lancer le serveur de développement : npm run dev
+            </pre>
+        </div>
+
+        <div id="proj-bilan" class="sub-page">
+            <h3>Analyse critique de la gestion de projet</h3>
+            <p>Le travail en laboratoire impose une rigueur documentaire très forte. L'activité la plus difficile et chronophage a été de concevoir des schémas explicatifs clairs pour le cahier des charges (notamment la fusion graphique entre la géographie des trajets et les calculs d'émissions de CO2).</p>
+            <p><span class="highlight">Évaluation du niveau d'expertise :</span> <span class="badge">EXCELLENT</span> en rigueur documentaire (LaTeX) ; <span class="badge">TRÈS BON</span> en gestion de configuration (README/Git).</p>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

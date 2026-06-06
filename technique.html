@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio BUT 2 - Technique</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div id="sidebar">
+        <div id="profile-header">
+            <h1>Luan ALIU</h1>
+            <p class="title-sub">Étudiant BUT 2 Informatique</p>
+            <p>luan.aliu@edu.univ-fcomte.fr</p>
+            <p>07 69 24 77 32</p>
+            <p class="lab-info">Stage : Laboratoire FEMTO-ST</p>
+        </div>
+        <nav class="main-nav">
+            <a href="index.html" class="nav-link">1. Accueil</a>
+            <a href="technique.html" class="nav-link active">2. Compétences Techniques</a>
+            <a href="projet.html" class="nav-link">3. Suivi de Projet</a>
+            <a href="entreprise.html" class="nav-link">4. Intégration Entreprise</a>
+        </nav>
+    </div>
+
+    <div id="main-content">
+        <h2>Savoir-faire Techniques</h2>
+        <p>Cette section décrit les compétences en conception et développement logiciel appliquées sur la base de données et le démonstrateur du projet.</p>
+        
+        <div class="sub-nav-container">
+            <button class="sub-btn active" onclick="switchSubPage('tech-traces')">Traces de compétences</button>
+            <button class="sub-btn" onclick="switchSubPage('tech-bilan')">Bilan & Auto-évaluation</button>
+        </div>
+
+        <div id="tech-traces" class="sub-page active">
+            <h3>Trace 1 : Script de structure et de contraintes (PostgreSQL)</h3>
+            <p>Voici un extrait du script DDL de la version 0.2 intégrant les contraintes de robustesse liées à la capacité maximale du véhicule (condition <span class="highlight">n_reel &lt;= capacite</span>) :</p>
+            <pre class="trace-box">
+-- Extrait du fichier de robustesse lié au DDL PostgreSQL
+ALTER TABLE requete_trajet 
+ADD CONSTRAINT chk_capacite_vehicule 
+CHECK (nombre_passagers_reel <= capacite_maximale);
+
+ALTER TABLE fenetre_horaire 
+ADD CONSTRAINT chk_coherence_horaire 
+CHECK (heure_debut <= heure_fin);
+            </pre>
+            <p><i>Utilisation :</i> Traduction des règles métiers de l'algorithme GBFCA en contraintes physiques strictes pour empêcher toute corruption des données en amont de l'application.</p>
+
+            <h3>Trace 2 : Architecture découplée du Démonstrateur</h3>
+            <p>Mise en place du flux d'échange de données fullstack : Récupération des requêtes utilisateurs (profils OP, OD) côté frontend <span class="highlight">Vue.js</span>, routage et traitement par l'API <span class="highlight">Node.js</span>, et persistance dans la base <span class="highlight">PostgreSQL</span>.</p>
+        </div>
+
+        <div id="tech-bilan" class="sub-page">
+            <h3>Analyse critique de l'apprentissage</h3>
+            <p>La modélisation de données vue à l'IUT a été poussée à un niveau supérieur. La complexité résidait dans le caractère itératif de la transition MCD vers MPD, nécessitant de nombreuses corrections pour gérer les cas réels du projet Mu-CAR (arrêts et détours). Le développement de la liaison Node.js/PostgreSQL a été appris en totale autonomie.</p>
+            <p><span class="highlight">Évaluation du niveau d'expertise :</span> <span class="badge">EXCELLENT</span> en modélisation SQL et robustesse ; <span class="badge">TRÈS BON</span> en intégration Web découplée.</p>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
