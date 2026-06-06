@@ -26,7 +26,7 @@
 
     <div id="main-content">
         <h2>Savoir-faire Techniques</h2>
-        <p>Cette section décrit les compétences en conception et développement logiciel appliquées sur la base de données et le démonstrateur du projet.</p>
+        <p>Cette section décrit mes compétences en conception de bases de données et en développement d'architectures d'ingestion logicielles, appliquées à la consolidation des données du projet Mu-CAR.</p>
         
         <div class="sub-nav-container">
             <button class="sub-btn active" onclick="switchSubPage('tech-traces')">Traces de compétences</button>
@@ -34,28 +34,74 @@
         </div>
 
         <div id="tech-traces" class="sub-page active">
-            <h3>Trace 1 : Script de structure et de contraintes (PostgreSQL)</h3>
-            <p>Voici un extrait du script DDL de la version 0.2 intégrant les contraintes de robustesse liées à la capacité maximale du véhicule (condition <span class="highlight">n_reel &lt;= capacite</span>) :</p>
+            
+            <div class="skills-list-box">
+                <h4>Savoir-faire élémentaires couverts :</h4>
+                <ul>
+                    <li><span class="sf-bdd">SF-BDD-1 : Traduire des règles métiers en contraintes d'intégrité physiques SQL.</span></li>
+                    <li><span class="sf-bdd">SF-BDD-2 : Modéliser et structurer des relations et des clés étrangères complexes.</span></li>
+                    <li><span class="sf-dev">SF-DEV-1 : Développer des points d'accès (endpoints) API REST d'extraction et d'agrégation.</span></li>
+                    <li><span class="sf-archi">SF-ARCHI-1 : Orchestrer et isoler des services applicatifs et de données via la conteneurisation Docker.</span></li>
+                </ul>
+            </div>
+
+            <h3>Trace 1 : Script DDL de robustesse de la base de données PostgreSQL</h3>
             <pre class="trace-box">
--- Extrait du fichier de robustesse lié au DDL PostgreSQL
+-- [POINT REMARQUABLE A : CONTRAINTE DE CAPACITÉ]
 ALTER TABLE requete_trajet 
 ADD CONSTRAINT chk_capacite_vehicule 
 CHECK (nombre_passagers_reel <= capacite_maximale);
 
+-- [POINT REMARQUABLE B : COHÉRENCE TEMPORELLE]
 ALTER TABLE fenetre_horaire 
 ADD CONSTRAINT chk_coherence_horaire 
 CHECK (heure_debut <= heure_fin);
             </pre>
-            <p><i>Utilisation :</i> Traduction des règles métiers de l'algorithme GBFCA en contraintes physiques strictes pour empêcher toute corruption des données en amont de l'application.</p>
+            <span class="trace-caption"><b>Légende Trace 1 :</b> Extrait du script SQL physique (v0.3) traduisant les règles de l'algorithme GBFCA en barrières de sécurité physiques dans PostgreSQL.</span>
 
-            <h3>Trace 2 : Architecture découplée du Démonstrateur</h3>
-            <p>Mise en place du flux d'échange de données fullstack : Récupération des requêtes utilisateurs (profils OP, OD) côté frontend <span class="highlight">Vue.js</span>, routage et traitement par l'API <span class="highlight">Node.js</span>, et persistance dans la base <span class="highlight">PostgreSQL</span>.</p>
+            <p><b>Descriptif général & place dans le stage :</b> La <tt>Trace 1</tt> représente l'aboutissement de mon travail de conception de données. Au sein du projet Mu-CAR, son rôle est capital : elle garantit qu'aucune donnée corrompue (comme un véhicule en surcharge ou un horaire inversé) ne puisse être enregistrée par le système de covoiturage, sécurisant ainsi les calculs du moteur de recherche.</p>
+            
+            <p><b>Utilisation des savoir-faire :</b> J'ai mobilisé le savoir-faire <span class="sf-bdd">SF-BDD-1</span> pour implémenter des garde-fous directement au niveau physique. Dans la <tt>Trace 1</tt>, le <b>[POINT REMARQUABLE A]</b> montre comment la règle métier "un conducteur ne peut pas prendre plus de passagers que sa capacité maximale" est rigidifiée par un <tt>CHECK</tt>. Le <b>[POINT REMARQUABLE B]</b> applique la même logique pour la cohérence chronologique des fenêtres horaires, sécurisant le mapping de la table <tt>requete</tt>.</p>
+
+            <hr style="margin: 25px 0; border: 0; border-top: 1px dashed #cbd5e1;">
+
+            <h3>Trace 2 : Architecture d'ingestion et routage de l'API REST backend MucarGen</h3>
+            <pre class="trace-box">
+MucarGen/
+├── src/
+│   ├── config/
+│   │   └── db.js            # Configuration du Pool de connexion PostgreSQL
+│   ├── controllers/
+│   │   ├── dashController.js # [POINT REMARQUABLE C : Calculs d'agrégation SUM/COUNT]
+│   │   └── stopController.js # Extraction et formatage des arrêts pour l'application
+│   └── server.js            # Point d'entrée, middlewares (CORS) et routage
+├── Dockerfile               # Build de l'image Node.js de production
+└── docker-compose.yml       # [POINT REMARQUABLE D : Orchestration API + PostgreSQL]
+            </pre>
+            <span class="trace-caption"><b>Légende Trace 2 :</b> Arborescence structurelle et fichiers de configuration du service d'ingestion MucarGen (Node.js / Express / Docker).</span>
+
+            <p><b>Descriptif général & place dans le stage :</b> Mon démonstrateur d'interface front-end n'étant plus le composant le plus avancé, j'ai réorienté mes efforts sur l'infrastructure. La <tt>Trace 2</tt> montre l'architecture de <tt>MucarGen</tt>, une API backend développée cette semaine. Son but n'est pas de remplacer l'interface de visualisation existante (<tt>Mucar_viz</tt>), mais d'agir comme un <b>aspirateur de données</b> : elle extrait les flux simulés de <tt>Mucar_viz</tt> pour les injecter et les structurer proprement dans ma base PostgreSQL, afin d'alimenter de manière fiable le démonstrateur Mu-CAR.</p>
+            
+            <p><b>Utilisation des savoir-faire :</b> Pour l'extraction, j'ai mis en œuvre le savoir-faire <span class="sf-dev">SF-DEV-1</span> dans le <tt>dashController.js</tt> <b>[POINT REMARQUABLE C]</b>, en écrivant des requêtes de correspondance et d'agrégation (<tt>SUM</tt>, <tt>COUNT</tt> sur la table <tt>ticket</tt>) pour générer les statistiques environnementales de la zone pilote de Belfort-Montbéliard. Enfin, pour garantir la portabilité totale de cet aspirateur de données au laboratoire, j'ai utilisé le savoir-faire <span class="sf-archi">SF-ARCHI-1</span> via le fichier <tt>docker-compose.yml</tt> <b>[POINT REMARQUABLE D]</b>, qui déploie instantanément l'API Node et la base de données isolée dans un conteneur léger Alpine.</p>
         </div>
 
         <div id="tech-bilan" class="sub-page">
-            <h3>Analyse critique de l'apprentissage</h3>
-            <p>La modélisation de données vue à l'IUT a été poussée à un niveau supérieur. La complexité résidait dans le caractère itératif de la transition MCD vers MPD, nécessitant de nombreuses corrections pour gérer les cas réels du projet Mu-CAR (arrêts et détours). Le développement de la liaison Node.js/PostgreSQL a été appris en totale autonomie.</p>
-            <p><span class="highlight">Évaluation du niveau d'expertise :</span> <span class="badge">EXCELLENT</span> en modélisation SQL et robustesse ; <span class="badge">TRÈS BON</span> en intégration Web découplée.</p>
+            <div class="card">
+                <h3>Bilan sur le savoir-faire général : Conception et Ingestion de données</h3>
+                
+                <p><b>Résumé des savoir-faire élémentaires associés :</b> Ce savoir-faire général regroupe la traduction de contraintes métiers en SQL (<span class="sf-bdd">SF-BDD-1</span>), la structuration relationnelle (<span class="sf-bdd">SF-BDD-2</span>), le développement d'endpoints d'extraction (<span class="sf-dev">SF-DEV-1</span>) et le déploiement conteneurisé (<span class="sf-archi">SF-ARCHI-1</span>).</p>
+                
+                <p><b>Contexte d'utilisation :</b> Ces compétences ont été mobilisées pour concevoir l'arborescence physique de la base <tt>Mu-CAR_gen</tt> et coder l'API de transition <tt>MucarGen</tt> destinée à aspirer les données issues des briques de simulation du laboratoire.</p>
+                
+                <p><b>Contexte d'apprentissage & Difficultés :</b> 
+                    La modélisation conceptuelle (MCD) et les bases du SQL ont été étudiées en cours à l'IUT. Cependant, la transition itérative vers un modèle physique (MPD) intégrant des contraintes de robustesse complexes pour le covoiturage dynamique a représenté une réelle difficulté d'application. 
+                    Concernant le développement de l'API avec Express, la connexion par Pool (<tt>pg</tt>) et l'orchestration multi-conteneurs Docker, il s'agit d'un <b>apprentissage réalisé en totale autonomie</b> à la maison et durant le stage, le programme de BUT 2 ne couvrant pas encore la conteneurisation isolée de production.
+                </p>
+                
+                <p><b>Évaluation du niveau d'expertise :</b> <span class="badge">EXCELLENT</span><br>
+                <i>Justification et comparaison avant/après :</i> Avant le stage, mes compétences se limitaient à des requêtes SQL académiques sur une seule table fictive. Aujourd'hui, je suis capable de concevoir une base relationnelle robuste complète, de créer une API REST d'ingestion de données de bout en bout et de packager le tout sous Docker. Le niveau d'expertise est validé par la portabilité immédiate de l'outil sur les machines du laboratoire FEMTO-ST.
+                </p>
+            </div>
         </div>
     </div>
 

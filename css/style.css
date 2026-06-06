@@ -192,3 +192,25 @@ ul {
     font-weight: bold;
     font-size: 0.8rem;
 }
+
+/* --- COULEURS DES SAVOIR-FAIRE --- */
+.sf-dev { color: #e67e22; font-weight: bold; } /* Orange pour le Développement */
+.sf-bdd { color: #27ae60; font-weight: bold; } /* Vert pour les Bases de Données */
+.sf-archi { color: #8e44ad; font-weight: bold; } /* Violet pour l'Architecture/Docker */
+
+.skills-list-box {
+    background: #fff;
+    border-left: 4px solid #3b82f6;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border-radius: 0 6px 6px 0;
+}
+.skills-list-box ul { list-style-type: square; margin-left: 20px; }
+.trace-caption {
+    font-size: 0.85rem;
+    font-style: italic;
+    color: #64748b;
+    margin-top: -8px;
+    margin-bottom: 15px;
+    display: block;
+}
