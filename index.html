@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio BUT 2 - Accueil</title>
+    <title>Portfolio BUT 2 - Intégration Entreprise</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -17,50 +17,72 @@
             <p class="lab-info">Stage : Laboratoire FEMTO-ST</p>
         </div>
         <nav class="main-nav">
-            <a href="index.html" class="nav-link active">1. Accueil</a>
+            <a href="index.html" class="nav-link">1. Accueil</a>
             <a href="technique.html" class="nav-link">2. Compétences Techniques</a>
             <a href="projet.html" class="nav-link">3. Suivi de Projet</a>
-            <a href="entreprise.html" class="nav-link">4. Intégration Entreprise</a>
+            <a href="entreprise.html" class="nav-link active">4. Intégration Entreprise</a>
         </nav>
     </div>
 
     <div id="main-content">
-        <h2>Accueil & Contexte de Stage</h2>
-        <p>Bienvenue sur mon portfolio de BUT 2 Informatique. Ce site a pour but de formaliser, d'analyser et de valoriser les compétences techniques, méthodologiques et d'intégration professionnelles acquises au cours de mon stage de fin d'année.</p>
+        <h2>Intégration en Entreprise & Synergie</h2>
+        <p>Cette section analyse ma capacité à m'intégrer au sein d'une équipe de recherche, à collaborer autour d'un héritage logiciel et à vulgariser des concepts informatiques auprès du grand public.</p>
         
-        <div class="flex-container">
-            <div class="card">
-                <h3>Contexte Entreprise</h3>
-                <p><span class="highlight">Laboratoire FEMTO-ST</span> (UMR 6174), associé au CNRS et à l'Université de Franche-Comté.</p>
-                <p><span class="highlight">Service :</span> Département DISC, équipe de recherche OMNI (Optimisation, Réseaux, Mobilité, Numérique).</p>
-                <p><span class="highlight">Supervision :</span> Sous la direction de M. Philippe Canalda, au sein d'une équipe de stagiaires travaillant en synergie.</p>
-            </div>
-            <div class="card">
-                <h3>Le Projet de Stage</h3>
-                <p><span class="highlight">Sujet :</span> Structuration logicielle, conception de données et développement du backend d'ingestion de la Plateforme <span class="highlight">Mu-CAR</span>.</p>
-                <p><span class="highlight">Objectif :</span> Répondre au manque de flexibilité des transports publics. Ma mission consiste à concevoir la base de données relationnelle et développer l'API de transition capable d'aspirer le flux d'informations de l'environnement existant pour alimenter le moteur algorithmique central (GBFCA).</p>
-            </div>
+        <div class="sub-nav-container">
+            <button class="sub-btn active" onclick="switchSubPage('ent-traces')">Traces d'intégration</button>
+            <button class="sub-btn" onclick="switchSubPage('ent-bilan')">Bilan & Co-working</button>
         </div>
 
-        <div class="card" style="margin-top: 20px;">
-            <h3>Évolution de mes missions : Du prototype Front-End à l'architecture de données</h3>
-            <p>En début de stage, j'ai conçu et développé de bout en bout la première version fonctionnelle du démonstrateur client (interface graphique, formulaires et intégration cartographique). Par la suite, un autre stagiaire a repris cette base pour concevoir une interface visuelle plus avancée. Cette synergie d'équipe m'a permis de réorienter mes efforts sur un besoin plus critique et structurel : la modélisation de la base de données PostgreSQL et la création de l'API d'ingestion.</p>
+        <div id="ent-traces" class="sub-page active">
             
-            <div style="text-align: center;">
-                <img src="images/demonstrateur_v1.png" alt="Première version du démonstrateur par Luan Aliu" class="portfolio-img" style="max-height: 350px; margin: 0 auto;">
-                <span class="trace-caption"><b>Figure 1 :</b> Vue de la première version du démonstrateur client que j'ai initialement développée (Interface de saisie et carte de la zone pilote de Belfort-Montbéliard).</span>
+            <div class="skills-list-box">
+                <h4>Savoir-faire professionnels et relationnels couverts :</h4>
+                <ul>
+                    <li><span class="sf-dev">SF-ENT-1 : Collaborer en synergie au sein d'une équipe de développement multi-stagiaires.</span></li>
+                    <li><span class="sf-bdd">SF-ENT-2 : Assurer le transfert technologique et le passage de relais d'une brique logicielle.</span></li>
+                    <li><span class="sf-archi">SF-ENT-3 : Vulgariser des travaux de recherche complexes auprès d'un public non-technique.</span></li>
+                </ul>
             </div>
+
+            <h3>Trace 1 : Première version du démonstrateur client (Livrable initial)</h3>
+            <div class="trace-image-wrapper">
+                <img src="images/demonstrateur_v1.jpg" alt="Première version du démonstrateur par Luan Aliu" class="portfolio-img">
+            </div>
+            <span class="trace-caption"><b>Légende Trace 1 :</b> Prototype d'interface utilisateur développé individuellement en début de stage (Formulaire de covoiturage et rendu cartographique de la zone de Belfort).</span>
+
+            <div class="visual-callout-box">
+                <b>[CADRE REMARQUABLE A - Formulaire et Carte] :</b> Cette interface graphique a servi de modèle métier pour formaliser les structures de données (horaires, arrêts, trajets) nécessaires à l'API.
+            </div>
+            
+            <p><b>Descriptif général & place dans le stage :</b> La <tt>Trace 1</tt> illustre le point de départ de mes interactions au sein du laboratoire FEMTO-ST. J'ai conçu ce prototype de manière autonome pour matérialiser les besoins visuels du projet Mu-CAR avant que l'équipe ne se réorganise pour optimiser les compétences de chacun.</p>
+            
+            <p><b>Utilisation des savoir-faire :</b> Ce livrable a été le pivot de mon intégration. J'ai appliqué le savoir-faire <span class="sf-bdd">SF-ENT-2</span> lors du passage de relais de cette interface à un autre stagiaire du département DISC, qui avait pour mission de développer une version graphique plus avancée. Ce transfert de code propre a nécessité la mise en place d'une solide synergie d'équipe (<span class="sf-dev">SF-ENT-1</span>) : au lieu de dupliquer les efforts, nous avons scindé nos rôles. En lui confiant la responsabilité du Front-End (<b>[CADRE REMARQUABLE A]</b>), j'ai pu basculer sur la conception de la base de données et de l'API d'aspiration <tt>MucarGen</tt>, garantissant ainsi une meilleure architecture globale pour le laboratoire.</p>
+
+            <hr style="margin: 30px 0; border: 0; border-top: 1px dashed #cbd5e1;">
+
+            <h3>Trace 2 : Supports de médiation scientifique au Festival Inouïh</h3>
+            <div class="trace-image-wrapper" style="text-align: center; padding: 40px; background: #f1f5f9; border: 2px dashed #cbd5e1;">
+                <p style="color: #64748b; margin: 0;">[Insérer ici une photo de toi au festival, un extrait d'affiche ou le schéma de vulgarisation que tu as présenté]</p>
+            </div>
+            <span class="trace-caption"><b>Légende Trace 2 :</b> Outils de communication et stand de démonstration utilisés lors de la journée de médiation grand public.</span>
+            
+            <p><b>Descriptif général & place dans le stage :</b> La <tt>Trace 2</tt> témoigne de l'ouverture du laboratoire sur l'extérieur. Au-delà du code, j'ai participé activement à la représentation de notre équipe de recherche lors du Festival Inouïh.</p>
+            
+            <p><b>Utilisation des savoir-faire :</b> Cette expérience a mobilisé le savoir-faire de communication <span class="sf-archi">SF-ENT-3</span>. Face à un public de non-initiés et d'enfants, j'ai dû simplifier des concepts d'optimisation mathématique et de routage multimodal en métaphores simples, valorisant ainsi l'impact environnemental et social des recherches menées à FEMTO-ST.</p>
         </div>
 
-        <h3>Synthèse des Savoir-faire mobilisés</h3>
-        <p>Le sujet de stage m'a permis de mettre en jeu trois grandes familles de savoir-faire généraux :</p>
-        <ul>
-            <li><span class="sf-bdd">Savoir-faire Technique (BDD) :</span> <i><b>Conception de bases de données relationnelles complexes</b></i> sous PostgreSQL, passage itératif du MCD au MPD et implémentation de contraintes de robustesse physiques.</li>
-            <li><span class="sf-dev">Savoir-faire Technique (DEV/ARCHI) :</span> <i><b>Développement d'une API REST d'ingestion</b></i> (Node.js / Express) pour aspirer et centraliser les données de simulation, et conteneurisation de l'environnement avec Docker.</li>
-            <li><span class="highlight">Suivi de projet :</span> Gestion de versions documentaires (LaTeX/Overleaf) et rédaction de guides de déploiement (README).</li>
-            <li><span class="highlight">Intégration en entreprise :</span> Médiation et vulgarisation scientifique (Festival Inouïh) et synergie d'équipe autour d'un héritage technique.</li>
-        </ul>
+        <div id="ent-bilan" class="sub-page">
+            <div class="card">
+                <h3>Bilan sur le savoir-faire général : Travail collaboratif et communication</h3>
+                <p><b>Résumé des savoir-faire élémentaires associés :</b> Synergie d'équipe (<span class="sf-dev">SF-ENT-1</span>), transfert de briques logicielles (<span class="sf-bdd">SF-ENT-2</span>) et vulgarisation publique (<span class="sf-archi">SF-ENT-3</span>).</p>
+                <p><b>Contexte d'utilisation :</b> Répartition des rôles de développement du projet Mu-CAR et animation des stands de vulgarisation du CNRS.</p>
+                <p><b>Contexte d'apprentissage & Difficultés :</b> Travailler en équipe sur un projet universitaire est courant, mais s'intégrer dans un flux de recherche avec des livrables interconnectés (<tt>Trace 1</tt>) était inédit. La principale difficulté a été d'accepter de léguer mon code d'interface graphique pour me focaliser exclusivement sur le backend. La vulgarisation lors du Festival (<tt>Trace 2</tt>) a également demandé un effort d'adaptation postural important par rapport aux présentations académiques classiques.</p>
+                <p><b>Évaluation du niveau d'expertise :</b> <span class="badge" style="background-color: #3b82f6;">TRÈS BON</span><br>
+                <i>Justification :</i> Avant le stage, j'avais une approche très individualiste du code. Grâce à ce passage de relais réussi et à mon implication dans les événements du laboratoire, j'ai développé une posture professionnelle capable de s'effacer pour l'intérêt collectif d'un projet informatique.</p>
+            </div>
+        </div>
     </div>
 
+    <script src="js/app.js"></script>
 </body>
 </html>
