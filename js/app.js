@@ -25,6 +25,28 @@ function switchSubPage(subPageId) {
     }
 }
 
+let currentSlide = 0;
+
+function moveSlide(direction) {
+    const slides = document.querySelectorAll('.carousel-slide');
+    if (slides.length === 0) return;
+
+    // Masquer la diapo actuelle
+    slides[currentSlide].classList.remove('active');
+
+    // Calculer le nouvel index
+    currentSlide += direction;
+
+    if (currentSlide >= slides.length) {
+        currentSlide = 0;
+    } else if (currentSlide < 0) {
+        currentSlide = slides.length - 1;
+    }
+
+    // Afficher la nouvelle diapo
+    slides[currentSlide].classList.add('active');
+}
+
 // ==========================================================================
 // AMÉLIORATIONS VISUELLES AVANCÉES (DASHBOARD INTERACTIF)
 // ==========================================================================

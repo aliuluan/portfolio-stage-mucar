@@ -94,6 +94,25 @@ CHECK (heure_debut <= heure_fin);
             <p><b>Descriptif général & place dans le stage :</b> Mon début de démonstrateur basé sur le prototype du précédent stagiaire ayant été abandonné pour un nouveau démonstrateur actuellement en cours de développement, j'ai concentré mes efforts sur le développement de l'API backend <tt>MucarGen</tt> pour faire office de passerelle de données. Cette API extrait les flux bruts générés par l'outil de simulation graphique et s'appuie sur la logique métier illustrée par la <tt>Trace 3</tt> pour alimenter de façon dynamique le tableau de bord environnemental.</p>
             
             <p><b>Utilisation des savoir-faire :</b> Pour donner corps à ce modèle visuel, j'ai utilisé le savoir-faire <span class="sf-dev">SF-DEV-1</span> en développant les points d'accès <tt>/api/v1/eco/global</tt> décrits dans la documentation technique (README) de mon dépôt. L'API traduit informatiquement le scénario de la <tt>Trace 3</tt> en effectuant des calculs de regroupement SQL (<tt>SUM</tt> et <tt>COUNT</tt> sur la table <tt>Ticket</tt> visible sur le MCD) pour renvoyer au client le volume exact de carbone évité. Enfin, le savoir-faire <span class="sf-archi">SF-ARCHI-1</span> a été requis pour encapsuler cette logique et la base de données PostgreSQL associée dans un environnement virtuel reproductible grâce à Docker Compose.</p>
+        
+            <hr style="margin: 30px 0; border: 0; border-top: 1px dashed #cbd5e1;">
+
+            <h3>Trace 4 : Travaux préparatoires et schématisation de la base de données</h3>
+            
+            <div class="carousel-container">
+                <div class="carousel-slide active">
+                    <img src="images/papier1.jpg" alt="Conception BDD - Feuille 1" class="portfolio-img">
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/papier2.jpg" alt="Conception BDD - Feuille 2" class="portfolio-img">
+                </div>
+                
+                <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+                <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
+            </div>
+            <span class="trace-caption"><b>Légende Trace 4 :</b> Notes manuscrites et schémas conceptuels initiaux réalisés lors des phases de modélisation et de structuration des entités logiques.</span>
+
+            <p><b>Descriptif général & place dans le stage :</b> Cette trace regroupe mes documents de recherche initiaux. L'utilisation d'un support papier m'a permis de poser mes idées à plat et d'expérimenter plusieurs agencements pour les tables avant de figer le MCD numérique présenté en <tt>Trace 1</tt>. Cela m'as aussi permis de faire un travail de schématisation pour les travaux de présentations. </p>
         </div>
 
         <div id="tech-bilan" class="sub-page">
