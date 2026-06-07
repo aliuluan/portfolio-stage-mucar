@@ -25,34 +25,131 @@
     </div>
 
     <div id="main-content">
-        <h2>Savoir-faire en Suivi de Projet</h2>
-        <p>Cette section présente les méthodes mises en œuvre pour documenter, versionner et assurer la pérennité des livrables du laboratoire.</p>
-
+        <h2>Suivi de Projet & Documentation</h2>
+        <p>Cette section démontre ma capacité à piloter un projet informatique en autonomie au sein du groupe OMNI du département DISC, à versionner mon code source et à produire une documentation technique et scientifique rigoureuse.</p>
+        
         <div class="sub-nav-container">
-            <button class="sub-btn active" onclick="switchSubPage('proj-traces')">Traces méthodologiques</button>
-            <button class="sub-btn" onclick="switchSubPage('proj-bilan')">Bilan & Auto-évaluation</button>
+            <button class="sub-btn active" onclick="switchSubPage('proj-traces')">Traces de suivi</button>
+            <button class="sub-btn" onclick="switchSubPage('proj-bilan')">Bilan de pilotage</button>
         </div>
 
         <div id="proj-traces" class="sub-page active">
-            <h3>Trace 3 : Versioning documentaire sous LaTeX / Overleaf</h3>
-            <p>Centralisation et mise au propre de toutes les notes techniques et diaporamas. Les versions successives (v0.1 à v0.3) ont permis de structurer pas à pas les présentations qui serviront de base officielle pour le cahier des charges du projet.</p>
             
-            <h3>Trace 4 : Fichier de déploiement README.md</h3>
-            <p>Rédaction d'un guide complet d'installation pour le démonstrateur, garantissant la portabilité et la reproductibilité de l'application sur n'importe quel poste de travail :</p>
-            <pre class="trace-box">
-# Guide d'installation du Démonstrateur Mu-CAR
-## Prérequis : Node.js (v18+) et PostgreSQL (v15+)
-1. Cloner le dépôt : git clone [...]
-2. Installer les dépendances frontend et backend : npm install
-3. Initialiser la base de données via le script : psql -U user -f mucar_gen.sql
-4. Lancer le serveur de développement : npm run dev
+            <div class="skills-list-box">
+                <h4>Savoir-faire méthodologiques couverts :</h4>
+                <ul>
+                    <li><span class="sf-archi">SF-PROJ-1 : Rédiger une documentation technique opérationnelle pour le déploiement logiciel.</span></li>
+                    <li><span class="sf-dev">SF-PROJ-2 : Assurer le suivi des livrables et la traçabilité des modifications via Git.</span></li>
+                    <li><span class="sf-bdd">SF-PROJ-3 : Maîtriser l'édition de rapports scientifiques structurés sous LaTeX / Overleaf.</span></li>
+                </ul>
+            </div>
+
+            <h3>Trace 1 : Fichier de documentation technique (README.md) de l'API MucarGen</h3>
+            <pre class="trace-box" style="max-height: 300px; overflow-y: scroll; background: #0f172a; color: #f8fafc; padding: 15px; border-radius: 6px; font-family: monospace; font-size: 0.85rem;">
+# MucarGen — API REST Multimodale Backend
+Backend de transition et moteur de données pour le prototype Mu-CAR.
+`MucarGen` sert de passerelle entre l'interface utilisateur (Front-end Vanilla JS via Vite) et la base de données relationnelle PostgreSQL.
+
+##  Fonctionnalités Implémentées
+L'API expose un ensemble d'endpoints configurés sous le préfixe `/api/v1` :
+1. Gestion des Arrêts (`GET /api/v1/stops`) : Extraction des points physiques de la table arret.
+2. Profil Utilisateur (`GET /api/v1/user`) : Liaison relationnelle entre end_user et profil.
+3. Tableau de Bord Éco (`GET /api/v1/eco/global`) : Calcul d'agrégation (SUM, COUNT) sur la table ticket.
+
+##  Utilisation et Lancement
+### Option 2 : Lancement isolé avec Docker (Recommandé)
+1. Construisez et démarrez les services :
+   docker-compose up --build
             </pre>
+            <span class="trace-caption"><b>Légende Trace 1 :</b> Extrait du fichier Markdown structurant l'architecture, la spécification contractuelle des routes de l'API et les procédures d'installation isolées.</span>
+
+            <div class="visual-callout-box">
+                <b>[CADRE REMARQUABLE A - Spécification des Endpoints et Docker] :</b> La formalisation contractuelle des routes de l'API (/api/v1) et l'intégration de la procédure Docker Compose garantissent la reproductibilité immédiate de mon application pour les autres chercheurs du projet.
+            </div>
+            
+            <p><b>Descriptif général & place dans le stage :</b> La <tt>Trace 1</tt> matérialise l'effort de rigueur indispensable à la pérennité d'un projet de recherche informatique. Afin que mon travail sur le backend de transition ne reste pas une boîte noire, j'ai rédigé cette documentation exhaustive à la racine de mon dépôt Git.</p>
+            
+            <p><b>Utilisation des savoir-faire :</b> J'ai mis en œuvre le savoir-faire <span class="sf-archi">SF-PROJ-1</span> pour structurer un guide de déploiement efficace. Comme souligné dans le <b>[CADRE REMARQUABLE A]</b>, ce document détaille comment orchestrer le conteneur Node.js et l'instance PostgreSQL d'un seul bloc, permettant au second stagiaire chargé du Front-End de basculer instantanément ses requêtes d'un environnement simulé (*MOCK*) vers mon API réelle sans aucune friction de configuration.</p>
+
+            <hr style="margin: 30px 0; border: 0; border-top: 1px dashed #cbd5e1;">
+
+            <h3>Trace 2 : Historique de versionnage et journal des commits Git</h3>
+            <pre class="trace-box" style="background: #1e1e1e; color: #4af626; padding: 15px; border-radius: 6px; font-family: monospace; font-size: 0.85rem;">
+$ git log --oneline --graph
+* 7f8a3b2 (HEAD -> main) feat: ajout du Dockerfile et de l'orchestration docker-compose
+* c3b2a19 docs: finalisation de la documentation des routes dans le fichier README.md
+* e9f4d12 feat: implémentation de la route /api/v1/eco/global pour l'agrégation du CO2
+* 3a2c5b1 fix: résolution du problème de timeout du pool de connexion dans db.js
+* 8b1d4e7 chore: commit initial et configuration de la structure SQL de la base de données
+            </pre>
+            <span class="trace-caption"><b>Légende Trace 2 :</b> Journal de suivi Git rédigé en français montrant l'arborescence des commits et la traçabilité rigoureuse des tâches de développement backend.</span>
+            
+            <p><b>Descriptif général & place dans le stage :</b> La <tt>Trace 2</tt> montre l'historique de l'avancement itératif de mes modules. L'utilisation de Git a été ma méthode de suivi quotidienne.</p>
+            
+            <p><b>Utilisation des savoir-faire :</b> Le suivi rigoureux via Git (<span class="sf-dev">SF-PROJ-2</span>) m'a permis d'isoler mes fonctionnalités. Chaque commit suit une logique explicite permettant d'identifier immédiatement si la modification concerne un correctif de base de données (<tt>fix</tt>), l'ajout d'une fonctionnalité d'ingestion (<tt>feat</tt>) ou la mise à jour de la documentation technique (<tt>docs</tt>).</p>
+
+            <hr style="margin: 30px 0; border: 0; border-top: 1px dashed #cbd5e1;">
+
+            <h3>Trace 3 : Rédaction scientifique de l'architecture logicielle sous l'environnement LaTeX</h3>
+            <div class="trace-image-wrapper" style="text-align: center; padding: 30px; background: #f8fafc; border: 1px solid #e2e8f0;">
+                <p style="color: #1e293b; font-family: serif; font-size: 1.05rem; margin: 0; text-align: left; line-height: 1.6;">
+                    <b style="font-size: 1.25rem; font-family: sans-serif; color: #0f172a;">Section 9 — Architecture Backend (Spécifications Techniques)</b><br><br>
+                    <span style="color: #0284c7; font-weight: bold;">\subsection{Flux de données et WebAPI}</span><br>
+                    L'architecture de transition s'articule autour d'une WebAPI dédiée qui assure l'aspiration des données externes et des flux en temps réel. Elle orchestre la transition technologique du projet Mu-CAR selon deux étapes clés :<br>
+                    \begin{enumerate}<br>
+                    \item \textbf{Étape 1a :} Récupération, filtrage et extraction des champs de données bruts.<br>
+                    \item \textbf{Étape 1b :} Sollicitation de la WebAPI moteur pour l'accès aux services algorithmiques critiques (liaison GBFCA).<br>
+                    \end{enumerate}<br>
+                    <span style="color: #0284c7; font-weight: bold;">\subsection{Fichiers de configuration et d'initialisation}</span><br>
+                    Pour l'étalonnage et la calibration de l'instance, le système s'appuie sur des formats structurés (CSV / JSON). Un script d'initialisation dédié gère le remplissage automatique et l'amorçage de la base de données relationnelle PostgreSQL.
+                </p>
+            </div>
+            <span class="trace-caption"><b>Légende Trace 3 :</b> Extrait du code source de mon rapport de recherche technique, édité sur l'environnement Overleaf.</span>
+
+            <div class="visual-callout-box">
+                <b>[CADRE REMARQUABLE B - Formalisation du Moteur GBFCA et des Flux] :</b> La rédaction scientifique de cette section détaille précisément les étapes logiques d'aspiration (Étape 1a et 1b) nécessaires pour connecter ma base de données relationnelle aux traitements algorithmiques du projet.
+            </div>
+
+            <p><b>Descriptif général & place dans le stage :</b> Au-delà de l'écriture du code source, un aspect crucial de mon intégration au groupe OMNI a été la formalisation théorique de mes recherches et de mes résultats sous forme de livrables académiques, en convertissant mes notes techniques des premières semaines en sections structurées.</p>
+            
+            <p><b>Utilisation des savoir-faire :</b> Cette brique de suivi a mobilisé le savoir-faire <span class="sf-bdd">SF-PROJ-3</span>. L'utilisation de LaTeX sur Overleaf m'a permis de m'affranchir des contraintes de mise en page pour me concentrer sur la rigueur scientifique de la structure. Comme illustré par le <b>[CADRE REMARQUABLE B]</b>, cela m'a permis de formaliser précisément les mécanismes d'initialisation et d'ingestion de la WebAPI, alignant mes livrables de stage sur les standards d'édition exigés au sein du laboratoire FEMTO-ST.</p>
         </div>
 
         <div id="proj-bilan" class="sub-page">
-            <h3>Analyse critique de la gestion de projet</h3>
-            <p>Le travail en laboratoire impose une rigueur documentaire très forte. L'activité la plus difficile et chronophage a été de concevoir des schémas explicatifs clairs pour le cahier des charges (notamment la fusion graphique entre la géographie des trajets et les calculs d'émissions de CO2).</p>
-            <p><span class="highlight">Évaluation du niveau d'expertise :</span> <span class="badge">EXCELLENT</span> en rigueur documentaire (LaTeX) ; <span class="badge">TRÈS BON</span> en gestion de configuration (README/Git).</p>
+            <div class="card" style="margin-bottom: 25px;">
+                <h4 style="margin-top: 0; color: #1e293b; font-size: 1.15rem;">Gestion de versions et traçabilité du code source (Git)</h4>
+                <div style="margin-bottom: 12px;">
+                    <span class="badge" style="background-color: #3b82f6;">Inspiré des cours</span>
+                    <span class="badge" style="background-color: #10b981;">Professionnalisé en stage</span>
+                    <span class="badge" style="background-color: #64748b;">Difficulté : Faible</span>
+                </div>
+                <p>L'utilisation de Git en milieu professionnel impose une rigueur bien plus forte qu'en projet universitaire. Pour le projet <tt>MucarGen</tt>, j'ai adopté une nomenclature stricte de commits en français (<tt>feat:</tt>, <tt>fix:</tt>, <tt>docs:</tt>) afin de garantir une transparence complète auprès de mon tuteur de stage et de faciliter le suivi quotidien de l'avancement de mes modules.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 25px;">
+                <h4 style="margin-top: 0; color: #1e293b; font-size: 1.15rem;">Documentation technique et rédaction scientifique (Markdown & LaTeX)</h4>
+                <div style="margin-bottom: 12px;">
+                    <span class="badge" style="background-color: #f59e0b;">Appris seul / en stage</span>
+                    <span class="badge" style="background-color: #10b981;">Rigueur académique</span>
+                    <span class="badge" style="background-color: #64748b;">Difficulté : Moyenne</span>
+                </div>
+                <p>Rédiger pour être relu et déployé par d'autres chercheurs est un défi méthodologique. J'ai structuré un fichier <tt>README.md</tt> exhaustif spécifiant chaque endpoint et formalisant l'orchestration sous Docker Compose. Parallèlement, l'apprentissage autonome de la syntaxe LaTeX sur l'éditeur Overleaf m'a permis de formaliser l'architecture de la WebAPI et les flux d'ingestion (Étape 1a / 1b) dans le rapport technique du laboratoire.</p>
+            </div>
+
+            <div class="card">
+                <h3 style="margin-top: 0; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px;">Évaluation du niveau - Pilotage, Suivi et Documentation</h3>
+                
+                <div style="margin: 20px 0; font-family: sans-serif;">
+                    <div style="margin-bottom: 10px;">
+                        <strong>Avant stage :</strong> <span style="color: #f59e0b; font-weight: bold;">Confirmé</span> (Utilisation basique de Git pour les livrables de SAE scolaires, rapports rédigés sous des traitements de texte classiques).
+                    </div>
+                    <div>
+                        <strong>Après stage :</strong> <span style="color: #10b981; font-weight: bold;">Excellent / Rigoureux</span> (Maîtrise des standards documentaires industriels et des environnements d'édition scientifique académique).
+                    </div>
+                </div>
+
+                <p><i>Justification :</i> J'ai acquis le réflexe de documenter systématiquement mes développements au lieu d'écrire du code isolé. Mes livrables techniques et mon arborescence de commits sont propres et immédiatement exploitables. La prise en main autonome de LaTeX a représenté un effort postural exigeant, mais me permet aujourd'hui d'éditer des documents répondant parfaitement aux standards de publication scientifique du département DISC.</p>
+            </div>
         </div>
     </div>
 

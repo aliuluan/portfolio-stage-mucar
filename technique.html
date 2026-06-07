@@ -97,13 +97,39 @@ CHECK (heure_debut <= heure_fin);
         </div>
 
         <div id="tech-bilan" class="sub-page">
+            <div class="card" style="margin-bottom: 25px;">
+                <h4 style="margin-top: 0; color: #1e293b; font-size: 1.15rem;">Modélisation et implémentation de bases de données relationnelles (PostgreSQL)</h4>
+                <div style="margin-bottom: 12px;">
+                    <span class="badge" style="background-color: #3b82f6;">Inspiré des cours</span>
+                    <span class="badge" style="background-color: #10b981;">Adapté au projet de stage</span>
+                    <span class="badge" style="background-color: #64748b;">Difficulté : Élevée</span>
+                </div>
+                <p>Le défi majeur a été de transposer le diagramme conceptuel du projet Mu-CAR en tables physiques PostgreSQL fonctionnelles. J'ai dû implémenter des contraintes relationnelles fortes, notamment la gestion des historiques d'états (table <tt>Log</tt>), la liaison fine entre les profils de mobilité (<tt>Profil</tt> et <tt>End_user</tt>) et le suivi analytique des transactions (table <tt>Ticket</tt>). La complexité résidait dans l'automatisation des attributs temporels des requêtes conducteurs et passagers.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 25px;">
+                <h4 style="margin-top: 0; color: #1e293b; font-size: 1.15rem;">Développement d'API REST asynchrones (Node.js / Express)</h4>
+                <div style="margin-bottom: 12px;">
+                    <span class="badge" style="background-color: #f59e0b;">Appris seul / en stage</span>
+                    <span class="badge" style="background-color: #10b981;">Adapté au projet de stage</span>
+                    <span class="badge" style="background-color: #64748b;">Difficulté : Moyenne</span>
+                </div>
+                <p>N'ayant pas de brique API standard clé en main pour ce backend de transition, j'ai développé en autonomie l'application <tt>MucarGen</tt>. L'objectif principal était de lever l'architecture de simulation fictive (*MOCK*) du Front-end pour la connecter aux flux relationnels réels (routes <tt>/api/v1/stops</tt> et <tt>/api/v1/eco/global</tt>). J'ai dû apprendre à maîtriser l'asynchronisme de Node-Postgres (<tt>pg Pool</tt>) pour éviter les goulets d'étranglement lors des requêtes d'ingestion massives.</p>
+            </div>
+
             <div class="card">
-                <h3>Bilan sur le savoir-faire général : Conception et Ingestion de données</h3>
-                <p><b>Résumé des savoir-faire élémentaires associés :</b> Traduction de contraintes physiques (<span class="sf-bdd">SF-BDD-1</span>), modélisation relationnelle (<span class="sf-bdd">SF-BDD-2</span>), endpoints d'API REST (<span class="sf-dev">SF-DEV-1</span>) et isolation applicative (<span class="sf-archi">SF-ARCHI-1</span>).</p>
-                <p><b>Contexte d'utilisation :</b> Structuration de la base de données unifiée de l'environnement expérimental et écriture du moteur d'aspiration et de transition des données de covoiturage.</p>
-                <p><b>Contexte d'apprentissage & Difficultés :</b> La théorie de la modélisation a été acquise à l'IUT. Cependant, adapter un MCD complet (<tt>Trace 1</tt>) à des flux fluctuants a été complexe. L'implémentation de l'architecture REST Node/Express et le déploiement conteneurisé multi-services sous Docker constituent un <b>apprentissage autonome</b> mené pour répondre aux exigences technologiques spécifiques à cette brique logicielle.</p>
-                <p><b>Évaluation du niveau d'expertise :</b> <span class="badge">EXCELLENT</span><br>
-                <i>Justification :</i> Je maîtrise désormais le cycle complet de la donnée, depuis sa modélisation théorique sur schéma jusqu'à son ingestion finale sécurisée par API sous Docker, validé par l'intégration fonctionnelle de mon outil au sein du système d'ingestion de données.</p>
+                <h3 style="margin-top: 0; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px;">Évaluation du niveau - Ingénierie Backend & Base de données</h3>
+                
+                <div style="margin: 20px 0; font-family: sans-serif;">
+                    <div style="margin-bottom: 10px;">
+                        <strong>Avant stage :</strong> <span style="color: #ef4444; font-weight: bold;">Intermédiaire</span> (Bases académiques de SQL issues des ressources de BUT, manipulation de bases locales simples).
+                    </div>
+                    <div>
+                        <strong>Après stage :</strong> <span style="color: #10b981; font-weight: bold;">Avancé / Autonome</span> (Capacité à architecturer un backend complet, sécurisé par variables d'environnement et interconnecté avec des flux réels).
+                    </div>
+                </div>
+
+                <p><i>Justification :</i> Ce stage m'a permis de passer d'une application scolaire et passive de mes connaissances SQL à une pratique industrielle exigeante. Je suis aujourd'hui parfaitement capable de concevoir un schéma relationnel de production, d'isoler une application via Docker Compose, et d'exposer des routes d'API documentées et opérationnelles. Une marge de progression subsiste concernant l'optimisation avancée des index (Index PG-GIS pour la géolocalisation) que je n'ai fait qu'effleurer.</p>
             </div>
         </div>
     </div>
